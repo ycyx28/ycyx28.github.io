@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java, liunx, 大数据, 正则" />
+  <meta name="keywords" content="liunx," />
 
 
 
@@ -84,15 +84,34 @@
 
 
 
-<meta name="description" content="山高我为峰！！！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Code Park">
-<meta property="og:url" content="http://ycyx28.com/index.html">
+<meta name="description" content="学习liunx的shell还得从租第一台云服务器开始，那时候只是好奇，觉得要多学点东西，到现在证明学习shell是正确的。在平时我总结了一些自己遇到的比较常用的liunx命令，现在和大家分享一下，以后也会不断更新。
+基本命令
+返回上一级目录      cd ..
+进入指定目录      cd /usr/local
+查看目录结构或详细      ls  ll
+查看当前路径      pwd 
+创建文">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Liunx常用命令（一）">
+<meta property="og:url" content="http://ycyx28.com/2016/07/05/liunx1/index.html">
 <meta property="og:site_name" content="Code Park">
-<meta property="og:description" content="山高我为峰！！！">
+<meta property="og:description" content="学习liunx的shell还得从租第一台云服务器开始，那时候只是好奇，觉得要多学点东西，到现在证明学习shell是正确的。在平时我总结了一些自己遇到的比较常用的liunx命令，现在和大家分享一下，以后也会不断更新。
+基本命令
+返回上一级目录      cd ..
+进入指定目录      cd /usr/local
+查看目录结构或详细      ls  ll
+查看当前路径      pwd 
+创建文">
+<meta property="og:updated_time" content="2016-07-05T04:01:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code Park">
-<meta name="twitter:description" content="山高我为峰！！！">
+<meta name="twitter:title" content="Liunx常用命令（一）">
+<meta name="twitter:description" content="学习liunx的shell还得从租第一台云服务器开始，那时候只是好奇，觉得要多学点东西，到现在证明学习shell是正确的。在平时我总结了一些自己遇到的比较常用的liunx命令，现在和大家分享一下，以后也会不断更新。
+基本命令
+返回上一级目录      cd ..
+进入指定目录      cd /usr/local
+查看目录结构或详细      ls  ll
+查看当前路径      pwd 
+创建文">
 
 
 
@@ -113,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://ycyx28.com/"/>
+  <link rel="canonical" href="http://ycyx28.com/2016/07/05/liunx1/"/>
 
-  <title> Code Park </title>
+  <title> Liunx常用命令（一） | Code Park </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -146,9 +165,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,9 +252,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -257,10 +274,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/07/05/liunx1/" itemprop="url">
-                  Liunx常用命令（一）
-                </a>
+                Liunx常用命令（一）
               
             
           </h1>
@@ -335,192 +349,135 @@
       
 
       
-        
-          
-          学习liunx的shell还得从租第一台云服务器开始，那时候只是好奇，觉得要多学点东西，到现在证明学习shell是正确的。在平时我总结了一些自己遇到的比较常用的liunx命令，现在和大家分享一下，以后也会不断更新。
-基本命令
-返回上一级目录      cd ..
-进入指定目录      cd /us
-          ...
+        <p>学习liunx的shell还得从租第一台云服务器开始，那时候只是好奇，觉得要多学点东西，到现在证明学习shell是正确的。在平时我总结了一些自己遇到的比较常用的liunx命令，现在和大家分享一下，以后也会不断更新。</p>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
+<li>返回上一级目录      <code>cd ..</code></li>
+<li>进入指定目录      <code>cd /usr/local</code></li>
+<li>查看目录结构或详细      <code>ls</code>  <code>ll</code></li>
+<li>查看当前路径      <code>pwd</code> </li>
+<li>创建文件夹      <code>mkdir folder</code></li>
+<li>创建文件      <code>touch file</code></li>
+<li>删除文件      <code>rm -rf path/file</code></li>
+<li>复制文件     <code>cp path1/file1  path2/file2</code></li>
+<li>移动/重命名文件     <code>mv path/file1 path/file2</code></li>
+<li>查看文件      <code>cat file</code>  <code>less file</code> <code>more file</code></li>
+<li>打印日志     <code>tail -200f xxx.log</code> </li>
+<li>获取指定程序的进程  <code>ps -ef|grep tomcat</code></li>
+<li>查看运行程序的状态  <code>netstat -tunpl</code></li>
+<li>杀死进程  <code>kill -9 pid</code></li>
+</ul>
+<h2 id="编辑文件"><a href="#编辑文件" class="headerlink" title="编辑文件"></a>编辑文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi path/file</div></pre></td></tr></table></figure>
+<p>输入如上命令后可显示对应的文件内容，当找到需要改动的地方，再输入命令<code>$ i</code>即可开始编辑，当编辑完成，在键盘按“Esc”键，在在终端输入命令 <code>$ :wq</code>保存并退出本次修改，若只输入命令<code>$ q!</code>则只退出不保存本次修改。</p>
+<p>小技巧：当需要复制某一行的时候，在没有输入命令<code>$ i</code>的时候，鼠标定位行可以先连续键入 <code>yy</code>,再键入<code>p</code>可完成对鼠标指针所在行的内容。</p>
+<h2 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ su - root</div><div class="line">$ su root</div><div class="line">$ su yc</div></pre></td></tr></table></figure>
+<ul>
+<li><code>su  root（对应用户）</code></li>
+<li><code>su</code> 后面不加用户是默认切到 root</li>
+<li><code>su</code>  是不改变当前变量</li>
+<li><code>su -</code> 是改变为切换到用户的变量 </li>
+<li>也就是说<code>su</code>只能获得root的执行权限，不能获得环境变量</li>
+<li>而<code>su -</code>是切换到root并获得root的环境变量及执行权限</li>
+</ul>
+<h2 id="解压命令包"><a href="#解压命令包" class="headerlink" title="解压命令包"></a>解压命令包</h2><ul>
+<li>tar包<ul>
+<li>解包：<code>tar xvf FileName.tar</code></li>
+<li>打包：<code>tar cvf FileName.tar DirName</code></li>
+<li>（注：tar是打包，不是压缩！）</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>zip包<ul>
+<li>解压：<code>unzip FileName.zip</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>rar包<ul>
+<li>解压：<code>rar x FileName.rar</code></li>
+<li>压缩：<code>rar a FileName.rar DirName</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>gz包<ul>
+<li>解压1：<code>gunzip FileName.gz</code></li>
+<li>解压2：<code>gzip -d FileName.gz</code></li>
+<li>压缩：<code>gzip FileName</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>tar.gz包 和 tgz包<ul>
+<li>解压：<code>tar zxvf FileName.tar.gz</code></li>
+<li>压缩：<code>tar zcvf FileName.tar.gz DirName</code></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>rpm包<ul>
+<li>解包：<code>rpm2cpio FileName.rpm | cpio -div</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Linux下查看、关闭及开启防火墙命令"><a href="#Linux下查看、关闭及开启防火墙命令" class="headerlink" title="Linux下查看、关闭及开启防火墙命令"></a>Linux下查看、关闭及开启防火墙命令</h2><ol>
+<li>永久性生效，重启后不会复原<br>开启： <code>chkconfig iptables on</code> 关闭： <code>chkconfig iptables off</code> </li>
+<li>即时生效，重启后复原<br>开启： <code>service iptables start</code> 关闭： <code>service iptables stop</code><br>需要说明的是对于Linux下的其它服务都可以用以上命令执行开启和关闭操作。<br>在开启了防火墙时，做如下设置，开启相关端口， 修改/etc/sysconfig/iptables 文件，添加以下内容：<br><code>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT</code><br><code>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</code></li>
+<li>查看防火墙状态<br><code>chkconfig iptables --list</code></li>
+</ol>
 
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/05/liunx1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/05/regex/" itemprop="url">
-                  正则表达式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T12:01:00+08:00" content="2016-07-05">
-              2016-07-05
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/regex/" itemprop="url" rel="index">
-                    <span itemprop="name">regex</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/05/regex/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/regex/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/07/05/regex/" class="leancloud_visitors" data-flag-title="正则表达式">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/liunx/" rel="tag">#liunx</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          一、元字符
-.      匹配除换行符以外的任意字符
-\w     匹配字母或数字或下划线或汉字
-\s     匹配任意的空白符
-\d     匹配数字
-\b     匹配单词的开始或结束
-^      匹配字符串的开始
-$      匹配字符串的结束
-
-二、反义
-\W             匹配
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/05/regex/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/05/regex/" rel="next" title="正则表达式">
+                <i class="fa fa-chevron-left"></i> 正则表达式
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -528,6 +485,14 @@ $      匹配字符串的结束
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/05/liunx1/"
+           data-title="Liunx常用命令（一）" data-url="http://ycyx28.com/2016/07/05/liunx1/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -547,8 +512,17 @@ $      匹配字符串的结束
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/sprint.png"
@@ -640,6 +614,17 @@ $      匹配字符串的结束
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑文件"><span class="nav-number">2.</span> <span class="nav-text">编辑文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换用户"><span class="nav-number">3.</span> <span class="nav-text">切换用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压命令包"><span class="nav-number">4.</span> <span class="nav-text">解压命令包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下查看、关闭及开启防火墙命令"><span class="nav-number">5.</span> <span class="nav-text">Linux下查看、关闭及开启防火墙命令</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -743,6 +728,10 @@ $      匹配字符串的结束
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
