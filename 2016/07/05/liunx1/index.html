@@ -102,7 +102,7 @@
 查看目录结构或详细      ls  ll
 查看当前路径      pwd 
 创建文">
-<meta property="og:updated_time" content="2016-07-05T04:01:00.000Z">
+<meta property="og:updated_time" content="2016-07-06T14:33:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Liunx常用命令（一）">
 <meta name="twitter:description" content="学习liunx的shell还得从租第一台云服务器开始，那时候只是好奇，觉得要多学点东西，到现在证明学习shell是正确的。在平时我总结了一些自己遇到的比较常用的liunx命令，现在和大家分享一下，以后也会不断更新。
@@ -425,6 +425,8 @@
 <li>即时生效，重启后复原<br>开启： <code>service iptables start</code> 关闭： <code>service iptables stop</code><br>需要说明的是对于Linux下的其它服务都可以用以上命令执行开启和关闭操作。<br>在开启了防火墙时，做如下设置，开启相关端口， 修改/etc/sysconfig/iptables 文件，添加以下内容：<br><code>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT</code><br><code>-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j ACCEPT</code></li>
 <li>查看防火墙状态<br><code>chkconfig iptables --list</code></li>
 </ol>
+<h2 id="Liunx下修改文件的创建时间"><a href="#Liunx下修改文件的创建时间" class="headerlink" title="Liunx下修改文件的创建时间"></a>Liunx下修改文件的创建时间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch -t 201607051201 path/file</div></pre></td></tr></table></figure>
+<p> <code>-t</code>后面跟要修改的时间，时间格式为<code>YYYYMMDDhhmm</code> 时间后面跟的是需要修改的文件的“路径+文件名”这里修改的时间点是<code>2016-07-05 12:01</code></p>
 
       
     </div>
@@ -621,7 +623,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑文件"><span class="nav-number">2.</span> <span class="nav-text">编辑文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换用户"><span class="nav-number">3.</span> <span class="nav-text">切换用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压命令包"><span class="nav-number">4.</span> <span class="nav-text">解压命令包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下查看、关闭及开启防火墙命令"><span class="nav-number">5.</span> <span class="nav-text">Linux下查看、关闭及开启防火墙命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本命令"><span class="nav-number">1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑文件"><span class="nav-number">2.</span> <span class="nav-text">编辑文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换用户"><span class="nav-number">3.</span> <span class="nav-text">切换用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解压命令包"><span class="nav-number">4.</span> <span class="nav-text">解压命令包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下查看、关闭及开启防火墙命令"><span class="nav-number">5.</span> <span class="nav-text">Linux下查看、关闭及开启防火墙命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Liunx下修改文件的创建时间"><span class="nav-number">6.</span> <span class="nav-text">Liunx下修改文件的创建时间</span></a></li></ol></div>
             
           </div>
         </section>
