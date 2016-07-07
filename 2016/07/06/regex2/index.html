@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="都说正则表达式好用，是神器，可是真正用起来，拿着空洞的概率又不会用，简单的一些规则校验没有问题，网上一大把，这边主要讲正则的分组问题。
+<meta name="description" content="前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的分组、捕获,用代码的形式讲解一下，帮助理解和运用。
 我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。
-问题描述提取日志文件">
+问题描述提取日志文件的一行的部分，从字符">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式练习（一）">
+<meta property="og:title" content="正则表达式—分组、捕获">
 <meta property="og:url" content="http://ycyx28.com/2016/07/06/regex2/index.html">
 <meta property="og:site_name" content="Code Park">
-<meta property="og:description" content="都说正则表达式好用，是神器，可是真正用起来，拿着空洞的概率又不会用，简单的一些规则校验没有问题，网上一大把，这边主要讲正则的分组问题。
+<meta property="og:description" content="前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的分组、捕获,用代码的形式讲解一下，帮助理解和运用。
 我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。
-问题描述提取日志文件">
-<meta property="og:updated_time" content="2016-07-06T15:59:28.000Z">
+问题描述提取日志文件的一行的部分，从字符">
+<meta property="og:updated_time" content="2016-07-07T13:50:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式练习（一）">
-<meta name="twitter:description" content="都说正则表达式好用，是神器，可是真正用起来，拿着空洞的概率又不会用，简单的一些规则校验没有问题，网上一大把，这边主要讲正则的分组问题。
+<meta name="twitter:title" content="正则表达式—分组、捕获">
+<meta name="twitter:description" content="前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的分组、捕获,用代码的形式讲解一下，帮助理解和运用。
 我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。
-问题描述提取日志文件">
+问题描述提取日志文件的一行的部分，从字符">
 
 
 
@@ -122,7 +122,7 @@
 
   <link rel="canonical" href="http://ycyx28.com/2016/07/06/regex2/"/>
 
-  <title> 正则表达式练习（一） | Code Park </title>
+  <title> 正则表达式—分组、捕获 | Code Park </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +262,7 @@
             
             
               
-                正则表达式练习（一）
+                正则表达式—分组、捕获
               
             
           </h1>
@@ -315,7 +315,7 @@
 
           
           
-             <span id="/2016/07/06/regex2/" class="leancloud_visitors" data-flag-title="正则表达式练习（一）">
+             <span id="/2016/07/06/regex2/" class="leancloud_visitors" data-flag-title="正则表达式—分组、捕获">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -337,11 +337,15 @@
       
 
       
-        <p>都说正则表达式好用，是神器，可是真正用起来，拿着空洞的概率又不会用，简单的一些规则校验没有问题，网上一大把，这边主要讲正则的分组问题。</p>
+        <p>前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的<code>分组、捕获</code>,用代码的形式讲解一下，帮助理解和运用。</p>
 <p>我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。</p>
 <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>提取日志文件的一行的部分，从字符串<code>&quot;{firstName=Brett, lastName=McLaughlin, email=aaaa}&quot;</code>找出fistname的值来，也就是<code>Brett</code>，现在我们来编写程序。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class RegexFind &#123;</div><div class="line"></div><div class="line"> public static void main(String[] args) &#123;</div><div class="line">	RegexFind.regexFind();</div><div class="line"> &#125;</div><div class="line">	</div><div class="line"> public static void <span class="function"><span class="title">regexFind</span></span>()&#123;</div><div class="line">    String findString = <span class="string">"&#123;firstName=Brett, lastName=McLaughlin, email=aaaa&#125;"</span>;</div><div class="line">		</div><div class="line">	//正则，每个(exp)代表一个分组</div><div class="line">	//group(0)为匹配的整个字符串，group(1)为匹配的第一个字符串，以此类推</div><div class="line">	String reg = <span class="string">"(firstName=)(\\w*)(, lastName=.*)"</span>;</div><div class="line">	Pattern p = Pattern.compile(reg);</div><div class="line">	Matcher matcher = p.matcher(findString);</div><div class="line">	<span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">		String group0 = matcher.group(0);//匹配的整个字符串</div><div class="line">		String group1 = matcher.group(1);//匹配的第一个字符串</div><div class="line">		String group2 = matcher.group(2);//匹配的第二个字符串</div><div class="line">		String group3 = matcher.group(3);//匹配的第三个字符串</div><div class="line">		System.out.println(<span class="string">"group0为: "</span>+group0);</div><div class="line">		System.out.println(<span class="string">"group1为: "</span>+group1);</div><div class="line">		System.out.println(<span class="string">"group2为: "</span>+group2);</div><div class="line">		System.out.println(<span class="string">"group3为: "</span>+group3);</div><div class="line">	&#125;</div><div class="line">		</div><div class="line"> &#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">group0为: firstName=Brett, lastName=McLaughlin, email=aaaa&#125;</div><div class="line">group1为: firstName=</div><div class="line">group2为: Brett</div><div class="line">group3为: , lastName=McLaughlin, email=aaaa&#125;</div></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexFind</span> </span>&#123;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	RegexFind.regexFind();</div><div class="line"> &#125;</div><div class="line">	</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">regexFind</span><span class="params">()</span></span>&#123;</div><div class="line">    String findString = <span class="string">"&#123;firstName=Brett, lastName=McLaughlin, email=aaaa&#125;"</span>;</div><div class="line">		</div><div class="line">	<span class="comment">//正则，每个(exp)代表一个分组</span></div><div class="line">	<span class="comment">//group(0)为匹配的整个字符串，group(1)为匹配的第一个字符串，以此类推</span></div><div class="line">	String reg = <span class="string">"(firstName=)(\\w*)(, lastName=.*)"</span>;</div><div class="line">	Pattern p = Pattern.compile(reg);</div><div class="line">	Matcher matcher = p.matcher(findString);</div><div class="line">	<span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">		String group0 = matcher.group(<span class="number">0</span>);<span class="comment">//匹配的整个字符串</span></div><div class="line">		String group1 = matcher.group(<span class="number">1</span>);<span class="comment">//匹配的第一个字符串</span></div><div class="line">		String group2 = matcher.group(<span class="number">2</span>);<span class="comment">//匹配的第二个字符串</span></div><div class="line">		String group3 = matcher.group(<span class="number">3</span>);<span class="comment">//匹配的第三个字符串</span></div><div class="line">		System.out.println(<span class="string">"group0为: "</span>+group0);</div><div class="line">		System.out.println(<span class="string">"group1为: "</span>+group1);</div><div class="line">		System.out.println(<span class="string">"group2为: "</span>+group2);</div><div class="line">		System.out.println(<span class="string">"group3为: "</span>+group3);</div><div class="line">	&#125;</div><div class="line">		</div><div class="line"> &#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">group0为: firstName=Brett, lastName=McLaughlin, email=aaaa&#125;</div><div class="line">group1为: firstName=</div><div class="line">group2为: Brett</div><div class="line">group3为: , lastName=McLaughlin, email=aaaa&#125;</div></pre></td></tr></table></figure>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>  再优化一下上面的代码，只给我们需要的内容分组，也就是前面正则表达式说到的第七点“后向引用”中的“捕获”(?:exp)</p>
+<h2 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexCapture</span> </span>&#123;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	RegexCapture.capture();</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">capture</span><span class="params">()</span></span>&#123;</div><div class="line">    String findString = <span class="string">"&#123;firstName=Brett, lastName=McLaughlin, email=aaaa&#125;"</span>;</div><div class="line">		</div><div class="line">	<span class="comment">//正则，每个(exp)代表一个分组</span></div><div class="line">    <span class="comment">//(?:exp) 匹配exp,不捕获匹配的文本，也不给此分组分配组号</span></div><div class="line">	String reg = <span class="string">"(?:firstName=)(\\w*)(?:, lastName=.*)"</span>;</div><div class="line">	Pattern p = Pattern.compile(reg);</div><div class="line">	Matcher matcher = p.matcher(findString);</div><div class="line">	<span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">		String group0 = matcher.group(<span class="number">0</span>);<span class="comment">//匹配的整个字符串</span></div><div class="line">		String group1 = matcher.group(<span class="number">1</span>);<span class="comment">//匹配的第一个字符串</span></div><div class="line">		System.out.println(<span class="string">"group0为: "</span>+group0);</div><div class="line">		System.out.println(<span class="string">"group1为: "</span>+group1);</div><div class="line">	&#125;</div><div class="line">			</div><div class="line">	 &#125;</div><div class="line">	 </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="运动结果"><a href="#运动结果" class="headerlink" title="运动结果"></a>运动结果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">group0为: firstName=Brett, lastName=McLaughlin, email=aaaa&#125;</div><div class="line">group1为: Brett</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在实际处理中，我们可以用IO按行读物日志文件，然后逐行进行分析，用正则找到需要的字符串，进行统计，正则表达式很灵活，这里只讲了2种用法（<code>(exp)</code>和<code>(?:exp)</code>），其他用法类似，希望对大家有帮助！</p>
 
       
     </div>
@@ -405,7 +409,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/07/06/regex2/"
-           data-title="正则表达式练习（一）" data-url="http://ycyx28.com/2016/07/06/regex2/">
+           data-title="正则表达式—分组、捕获" data-url="http://ycyx28.com/2016/07/06/regex2/">
       </div>
     
   </div>
@@ -538,7 +542,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.</span> <span class="nav-text">运行结果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现-1"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运动结果"><span class="nav-number">6.</span> <span class="nav-text">运动结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>
