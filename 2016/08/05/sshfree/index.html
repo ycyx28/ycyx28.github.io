@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="regex," />
+  <meta name="keywords" content="liunx," />
 
 
 
@@ -84,22 +84,27 @@
 
 
 
-<meta name="description" content="前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的分组、捕获,用代码的形式讲解一下，帮助理解和运用。
-我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。
-问题描述提取日志文件的一行的部分，从字符">
+<meta name="description" content="在装Hadoop环境的时候需要设置SSH免密码登录，在服务器间传送文件的时候难免也会用到scp传送文件，那么问题来了，什么是SSH？SSH免密码登录原理是什么？怎么去设置？带着这几个问题，开始阐述SSH免密码登录的内容。
+
+SSH介绍
+SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层和传输层基础上的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式—分组、捕获">
-<meta property="og:url" content="http://ycyx28.com/2016/07/07/regex2/index.html">
+<meta property="og:title" content="SSH免密码登录">
+<meta property="og:url" content="http://ycyx28.com/2016/08/05/sshfree/index.html">
 <meta property="og:site_name" content="Code Park">
-<meta property="og:description" content="前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的分组、捕获,用代码的形式讲解一下，帮助理解和运用。
-我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。
-问题描述提取日志文件的一行的部分，从字符">
-<meta property="og:updated_time" content="2016-07-07T13:49:53.000Z">
+<meta property="og:description" content="在装Hadoop环境的时候需要设置SSH免密码登录，在服务器间传送文件的时候难免也会用到scp传送文件，那么问题来了，什么是SSH？SSH免密码登录原理是什么？怎么去设置？带着这几个问题，开始阐述SSH免密码登录的内容。
+
+SSH介绍
+SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层和传输层基础上的">
+<meta property="og:image" content="http://123.57.250.23:8089/img/ycyx28/ssh/ssh-yl.png">
+<meta property="og:updated_time" content="2016-08-05T13:14:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式—分组、捕获">
-<meta name="twitter:description" content="前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的分组、捕获,用代码的形式讲解一下，帮助理解和运用。
-我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。
-问题描述提取日志文件的一行的部分，从字符">
+<meta name="twitter:title" content="SSH免密码登录">
+<meta name="twitter:description" content="在装Hadoop环境的时候需要设置SSH免密码登录，在服务器间传送文件的时候难免也会用到scp传送文件，那么问题来了，什么是SSH？SSH免密码登录原理是什么？怎么去设置？带着这几个问题，开始阐述SSH免密码登录的内容。
+
+SSH介绍
+SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层和传输层基础上的">
+<meta name="twitter:image" content="http://123.57.250.23:8089/img/ycyx28/ssh/ssh-yl.png">
 
 
 
@@ -120,9 +125,9 @@
 
 
 
-  <link rel="canonical" href="http://ycyx28.com/2016/07/07/regex2/"/>
+  <link rel="canonical" href="http://ycyx28.com/2016/08/05/sshfree/"/>
 
-  <title> 正则表达式—分组、捕获 | Code Park </title>
+  <title> SSH免密码登录 | Code Park </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +267,7 @@
             
             
               
-                正则表达式—分组、捕获
+                SSH免密码登录
               
             
           </h1>
@@ -274,8 +279,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-07T21:49:53+08:00" content="2016-07-07">
-              2016-07-07
+            <time itemprop="dateCreated" datetime="2016-08-05T21:14:29+08:00" content="2016-08-05">
+              2016-08-05
             </time>
           </span>
 
@@ -288,8 +293,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/regex/" itemprop="url" rel="index">
-                    <span itemprop="name">regex</span>
+                  <a href="/categories/liunx/" itemprop="url" rel="index">
+                    <span itemprop="name">liunx</span>
                   </a>
                 </span>
 
@@ -304,8 +309,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/07/regex2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/07/regex2/" itemprop="commentsCount"></span>
+                <a href="/2016/08/05/sshfree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/05/sshfree/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -315,7 +320,7 @@
 
           
           
-             <span id="/2016/07/07/regex2/" class="leancloud_visitors" data-flag-title="正则表达式—分组、捕获">
+             <span id="/2016/08/05/sshfree/" class="leancloud_visitors" data-flag-title="SSH免密码登录">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -337,15 +342,57 @@
       
 
       
-        <p>前面已经讲到了正则表达式的概率和基本语法，现在我们就正则表达式的<code>分组、捕获</code>,用代码的形式讲解一下，帮助理解和运用。</p>
-<p>我们先抛出一个问题，需要分析一个很大的日志或者很多个日志文件，需要找出有特定表示的字符串日志记录下来，而这个字符串又有规则，但是长度不确定，用substring会显得有点力不从心，用split又太繁琐，最好的办法是用正则的分组来解决这个问题。</p>
-<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>提取日志文件的一行的部分，从字符串<code>&quot;{firstName=Brett, lastName=McLaughlin, email=aaaa}&quot;</code>找出fistname的值来，也就是<code>Brett</code>，现在我们来编写程序。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexFind</span> </span>&#123;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	RegexFind.regexFind();</div><div class="line"> &#125;</div><div class="line">	</div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">regexFind</span><span class="params">()</span></span>&#123;</div><div class="line">    String findString = <span class="string">"&#123;firstName=Brett, lastName=McLaughlin, email=aaaa&#125;"</span>;</div><div class="line">		</div><div class="line">	<span class="comment">//正则，每个(exp)代表一个分组</span></div><div class="line">	<span class="comment">//group(0)为匹配的整个字符串，group(1)为匹配的第一个字符串，以此类推</span></div><div class="line">	String reg = <span class="string">"(firstName=)(\\w*)(, lastName=.*)"</span>;</div><div class="line">	Pattern p = Pattern.compile(reg);</div><div class="line">	Matcher matcher = p.matcher(findString);</div><div class="line">	<span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">		String group0 = matcher.group(<span class="number">0</span>);<span class="comment">//匹配的整个字符串</span></div><div class="line">		String group1 = matcher.group(<span class="number">1</span>);<span class="comment">//匹配的第一个字符串</span></div><div class="line">		String group2 = matcher.group(<span class="number">2</span>);<span class="comment">//匹配的第二个字符串</span></div><div class="line">		String group3 = matcher.group(<span class="number">3</span>);<span class="comment">//匹配的第三个字符串</span></div><div class="line">		System.out.println(<span class="string">"group0为: "</span>+group0);</div><div class="line">		System.out.println(<span class="string">"group1为: "</span>+group1);</div><div class="line">		System.out.println(<span class="string">"group2为: "</span>+group2);</div><div class="line">		System.out.println(<span class="string">"group3为: "</span>+group3);</div><div class="line">	&#125;</div><div class="line">		</div><div class="line"> &#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">group0为: firstName=Brett, lastName=McLaughlin, email=aaaa&#125;</div><div class="line">group1为: firstName=</div><div class="line">group2为: Brett</div><div class="line">group3为: , lastName=McLaughlin, email=aaaa&#125;</div></pre></td></tr></table></figure>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>  再优化一下上面的代码，只给我们需要的内容分组，也就是前面正则表达式说到的第七点“后向引用”中的“捕获”(?:exp)</p>
-<h2 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegexCapture</span> </span>&#123;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	RegexCapture.capture();</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">capture</span><span class="params">()</span></span>&#123;</div><div class="line">    String findString = <span class="string">"&#123;firstName=Brett, lastName=McLaughlin, email=aaaa&#125;"</span>;</div><div class="line">		</div><div class="line">	<span class="comment">//正则，每个(exp)代表一个分组</span></div><div class="line">    <span class="comment">//(?:exp) 匹配exp,不捕获匹配的文本，也不给此分组分配组号</span></div><div class="line">	String reg = <span class="string">"(?:firstName=)(\\w*)(?:, lastName=.*)"</span>;</div><div class="line">	Pattern p = Pattern.compile(reg);</div><div class="line">	Matcher matcher = p.matcher(findString);</div><div class="line">	<span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">		String group0 = matcher.group(<span class="number">0</span>);<span class="comment">//匹配的整个字符串</span></div><div class="line">		String group1 = matcher.group(<span class="number">1</span>);<span class="comment">//匹配的第一个字符串</span></div><div class="line">		System.out.println(<span class="string">"group0为: "</span>+group0);</div><div class="line">		System.out.println(<span class="string">"group1为: "</span>+group1);</div><div class="line">	&#125;</div><div class="line">			</div><div class="line">	 &#125;</div><div class="line">	 </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="运动结果"><a href="#运动结果" class="headerlink" title="运动结果"></a>运动结果</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">group0为: firstName=Brett, lastName=McLaughlin, email=aaaa&#125;</div><div class="line">group1为: Brett</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在实际处理中，我们可以用IO按行读物日志文件，然后逐行进行分析，用正则找到需要的字符串，进行统计，正则表达式很灵活，这里只讲了2种用法（<code>(exp)</code>和<code>(?:exp)</code>），其他用法类似，希望对大家有帮助！</p>
+        <ul>
+<li>在装Hadoop环境的时候需要设置SSH免密码登录，在服务器间传送文件的时候难免也会用到<code>scp</code>传送文件，那么问题来了，什么是SSH？SSH免密码登录原理是什么？怎么去设置？带着这几个问题，开始阐述SSH免密码登录的内容。</li>
+</ul>
+<h2 id="SSH介绍"><a href="#SSH介绍" class="headerlink" title="SSH介绍"></a>SSH介绍</h2><ul>
+<li>SSH 为 Secure Shell 的缩写，由 IETF 的网络小组（Network Working Group）所制定；SSH 为建立在应用层和传输层基础上的安全协议。SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。SSH客户端适用于多种平台。几乎所有UNIX平台—包括HP-UX、Linux、AIX、Solaris、Digital UNIX、Irix，以及其他平台，都可运行SSH。</li>
+</ul>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="http://123.57.250.23:8089/img/ycyx28/ssh/ssh-yl.png" alt="mahua"></p>
+<ul>
+<li>服务器A如果想免密码访问服务器B，需要将A生成的共钥发给服务器B，然后追加到服务器B的authorized_keys文件中，这样服务器A就可以免密码访问B服务器了。</li>
+</ul>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="安装SSH"><a href="#安装SSH" class="headerlink" title="安装SSH"></a>安装SSH</h3><ul>
+<li>这里就不讲SSH的安装了，如果没有安装，可以百度教程安装SSH服务，非常简单。<h3 id="生成密钥对"><a href="#生成密钥对" class="headerlink" title="生成密钥对"></a>生成密钥对</h3></li>
+<li>输入命令 <code>ssh-keygen -t rsa -C &#39;可选&#39;</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">[yc@iZ25pkrkh2kZ ~]$ ssh-keygen -t rsa -C &apos;yuchao11_2@163.com&apos;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/home/yc/.ssh/id_rsa): </div><div class="line">Created directory &apos;/home/yc/.ssh&apos;.</div><div class="line">Enter passphrase (empty for no passphrase): </div><div class="line">Enter same passphrase again: </div><div class="line">Your identification has been saved in /home/yc/.ssh/id_rsa.</div><div class="line">Your public key has been saved in /home/yc/.ssh/id_rsa.pub.</div><div class="line">The key fingerprint is:</div><div class="line">9a:8e:e2:de:0a:ee:43:77:f5:3b:77:af:d8:c0:96:c7 yuchao11_2@163.com</div><div class="line">The key is randomart image is:</div><div class="line">+--[ RSA 2048]----+</div><div class="line">|                 |</div><div class="line">|                 |</div><div class="line">|                 |</div><div class="line">|       .         |</div><div class="line">|      . S        |</div><div class="line">| . . . o .. o    |</div><div class="line">|o . . o   .= E   |</div><div class="line">|.o.. o   o..=.   |</div><div class="line">|.==oo .   o..oo. |</div><div class="line">+-----------------+</div><div class="line">``` </div><div class="line">* 输入命令后直接三次回车即可生成对应公钥和私钥，默认在用户目录下的 ``.ssh/ ``目录下。</div><div class="line">``` shell</div><div class="line">[yc@iZ25pkrkh2kZ ~]$ cd</div><div class="line">[yc@iZ25pkrkh2kZ ~]$ ls .ssh/</div><div class="line">id_rsa  id_rsa.pub</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="生成授权key"><a href="#生成授权key" class="headerlink" title="生成授权key"></a>生成授权key</h3><ul>
+<li>生成的key需要追加到授权的key才可以进行本机的免密码登录，默认<code>.ssh/</code>文件夹里面没有<code>authorized_keys</code>文件，需要手动创建。<code>touch authorized_keys</code></li>
+<li>有authorized_keys文件后，再在公钥追加进去 <code>cat id_rsa.pub &gt;&gt; authorized_keys</code></li>
+<li>操作目录如些：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[yc@iZ25pkrkh2kZ .ssh]$ touch authorized_keys</div><div class="line">[yc@iZ25pkrkh2kZ .ssh]$ cat id_rsa.pub &gt;&gt; authorized_keys </div><div class="line">[yc@iZ25pkrkh2kZ .ssh]$ ls</div><div class="line">authorized_keys  id_rsa  id_rsa.pub</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h3><ul>
+<li>有时候完成了所有操作，但是因为权限问题测试登录不成功，所以提前给authorized_keys分配600权限，执行命令<code>chmod 600 ~/.ssh/authorized_keys</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[yc@iZ25pkrkh2kZ .ssh]$ chmod 600 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="测试连接"><a href="#测试连接" class="headerlink" title="测试连接"></a>测试连接</h3><ul>
+<li>输入命令<code>ssh localhost</code> ,回车，首次执行根据提示，需要输入yes才能继续执行，不需要输入密码，直接连接成功，有如下提示，表示配置成功。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[yc@iZ25pkrkh2kZ .ssh]$ ssh localhost</div><div class="line">The authenticity of host &apos;localhost (127.0.0.1)&apos; can not be established.</div><div class="line">RSA key fingerprint is 45:bc:65:c5:f0:0a:5b:67:47:0c:43:90:17:23:ed:6b.</div><div class="line">Are you sure you want to continue connecting (yes/no)? yes</div><div class="line">Warning: Permanently added &apos;localhost&apos; (RSA) to the list of known hosts.</div><div class="line"></div><div class="line">Welcome to aliyun Elastic Compute Service!</div><div class="line"></div><div class="line">[yc@iZ25pkrkh2kZ ~]$ ssh localhost</div><div class="line">Last login: Fri Aug  5 12:46:43 2016 from 127.0.0.1</div><div class="line"></div><div class="line">Welcome to aliyun Elastic Compute Service!</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="配置其他服务器"><a href="#配置其他服务器" class="headerlink" title="配置其他服务器"></a>配置其他服务器</h3><ul>
+<li>按相同方法配置其他服务器。</li>
+<li>注意：.ssh/目录已改赋予 700 权限 命令为<code>chmod 700 ~/.ssh/</code></li>
+</ul>
+<h3 id="发送公钥"><a href="#发送公钥" class="headerlink" title="发送公钥"></a>发送公钥</h3><ul>
+<li>服务器都配置好后，根据需要，可将公钥发发送给需要访问的服务器。</li>
+<li>发送命令为<code>scp ~/.ssh/id_rsa.pub &lt;user&gt;@&lt;ip&gt;:~/.ssh/&lt;fileName&gt;</code></li>
+<li><code>user</code>需要发送服务器的用户名，<code>ip</code>为需要传送服务器的ip地址，<code>fileName</code>为发送服务器公钥<code>id_rsa.pub</code>的重命名，防止发送到目标服务器后覆盖或者文件名冲突。</li>
+<li>发送命令为： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> [yc@iZ25pkrkh2kZ ~]$ scp ~/.ssh/id_rsa.pub yc@192.168.1.123:~/.ssh/id_rsa_serverA </div><div class="line"> ``` </div><div class="line"></div><div class="line">### 追加授权key</div><div class="line">* 发送到目标服务器后，需要将发送过去的公钥文件追加到`authorized_keys`文件，执行命令如下：</div><div class="line"> ``` shell</div><div class="line"> [yc@iZ25pkrkh2kZ ~] cat id_rsa_serverA &gt;&gt; authorized_keys</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h3><ul>
+<li>操作命令<code>ssh &lt;ip&gt;</code> ip为需要访问的目标服务器。</li>
+<li><p>执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[yc@iZ25pkrkh2kZ ~] ssh 192.168.1.123</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果出现结果和本地测试一样<code>ssh localhost</code>,表示配置成功。</p>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>其他服务器类似同样的操作，服务器A将自己的公钥发送给待访问的服务器B，然后再将发送过来的公钥追加到待访问服务器B的authorized_keys文件后，就可以完成服务器A访问服务器B了，同样，对服务器B进行同样操作，可以完成服务器B访问服务器A。同理，更多的服务器也是进行同样的操作。</li>
+</ul>
 
       
     </div>
@@ -367,7 +414,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/regex/" rel="tag">#regex</a>
+            <a href="/tags/liunx/" rel="tag">#liunx</a>
           
         </div>
       
@@ -376,17 +423,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/05/liunx1/" rel="next" title="Liunx常用命令（一）">
-                <i class="fa fa-chevron-left"></i> Liunx常用命令（一）
+              <a href="/2016/07/07/regex2/" rel="next" title="正则表达式—分组、捕获">
+                <i class="fa fa-chevron-left"></i> 正则表达式—分组、捕获
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/05/sshfree/" rel="prev" title="SSH免密码登录">
-                SSH免密码登录 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,8 +455,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/07/regex2/"
-           data-title="正则表达式—分组、捕获" data-url="http://ycyx28.com/2016/07/07/regex2/">
+      <div class="ds-thread" data-thread-key="2016/08/05/sshfree/"
+           data-title="SSH免密码登录" data-url="http://ycyx28.com/2016/08/05/sshfree/">
       </div>
     
   </div>
@@ -546,7 +589,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行结果"><span class="nav-number">3.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现-1"><span class="nav-number">5.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运动结果"><span class="nav-number">6.</span> <span class="nav-text">运动结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH介绍"><span class="nav-number">1.</span> <span class="nav-text">SSH介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">2.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装SSH"><span class="nav-number">3.1.</span> <span class="nav-text">安装SSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成密钥对"><span class="nav-number">3.2.</span> <span class="nav-text">生成密钥对</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成授权key"><span class="nav-number">3.3.</span> <span class="nav-text">生成授权key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改权限"><span class="nav-number">3.4.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试连接"><span class="nav-number">3.5.</span> <span class="nav-text">测试连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置其他服务器"><span class="nav-number">3.6.</span> <span class="nav-text">配置其他服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发送公钥"><span class="nav-number">3.7.</span> <span class="nav-text">发送公钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证"><span class="nav-number">3.8.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.9.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
