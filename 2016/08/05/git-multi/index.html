@@ -94,7 +94,7 @@ SSH Key多账户
 <meta property="og:description" content="越来越多的企业和开发者将项目托管在git上，有自己搭建的git服务器，也有直接托管在互联网，可能很多人有多个git账户，习惯用命令操作的程序员就有烦恼了，多个git用户怎么解决，博主就有3个git账号，该如何无缝切换？带着这个问题我们往下看。
 SSH Key多账户
 在github上面托管了一些项目，最近又在oschina上面托管了一些项目，然后在本地还搭建了gitlub，因为一些原因，不想用同一个">
-<meta property="og:updated_time" content="2016-08-05T15:26:52.000Z">
+<meta property="og:updated_time" content="2016-08-07T02:09:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git多账号">
 <meta name="twitter:description" content="越来越多的企业和开发者将项目托管在git上，有自己搭建的git服务器，也有直接托管在互联网，可能很多人有多个git账户，习惯用命令操作的程序员就有烦恼了，多个git用户怎么解决，博主就有3个git账号，该如何无缝切换？带着这个问题我们往下看。
@@ -352,7 +352,7 @@ SSH Key多账户
 <li><p>在生成ssh key的时候，输入完命令<code>ssh-keygen -t rsa -C &#39;yuchao11_2&#39;</code>回车的时候，在第一个提示处记得对秘钥文件重命名，不然会覆盖默认的秘钥文件id_rsa,示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">yuchaodeMBP:~ yc$ ssh-keygen -t rsa -C &quot;yuchao28@163.com&quot;</div><div class="line">Generating public/private rsa key pair.</div><div class="line">Enter file in which to save the key (/Users/yc/.ssh/id_rsa): id_rsa_test（注意这里）</div><div class="line">Enter passphrase (empty for no passphrase): </div><div class="line">Enter same passphrase again: </div><div class="line">Your identification has been saved in id_rsa_test.</div><div class="line">Your public key has been saved in id_rsa_test.pub.</div><div class="line">The key fingerprint is:</div><div class="line">28:23:e9:57:4f:89:47:34:d3:5f:64:a9:19:be:6f:79 yuchao28@163.com</div><div class="line">The key&apos;s randomart image is:</div><div class="line">+--[ RSA 2048]----+</div><div class="line">|        +.   .o. |</div><div class="line">|       . o. ..o  |</div><div class="line">|        .  o =   |</div><div class="line">|   .   + .  =    |</div><div class="line">|  o o + S    .   |</div><div class="line">| . . + +    .    |</div><div class="line">|  . .   .    . . |</div><div class="line">|   .          + E|</div><div class="line">|             . . |</div><div class="line">+-----------------+</div></pre></td></tr></table></figure>
 </li>
-<li><p>git clone 项目时提示Host key verification failed<br>  使用 ssh 协议时会验证对方服务器的key。ssh无法确认服务器出示的<code>key</code> 是可信认的，所以问你这个<code>key</code>是不是真的是你要连接的那个服务器的。你没说「yes」所以 ssh 认为你不想继续连接，结果当然是连接失败</p>
+<li><p>git clone 项目时提示Host key verification failed<br>  使用 ssh 协议时会验证对方服务器的key。ssh无法确认服务器出示的<code>key</code> 是可信认的，所以问你这个<code>key</code>是不是真的是你要连接的那个服务器的。你没说「yes」所以<code>ssh</code>认为你不想继续连接，结果当然是连接失败</p>
 </li>
 <li>git clone Permissions 0644 for ‘~/.ssh/id_rsa’ are too open<br>  只要把权限降到0600就可以了</li>
 <li>Bad owner or permissions on /home/xxx/.ssh/config<br>  ssh config文件权限的问题,把权限降到0600就可以了.<a href="http://my.oschina.net/meilihao/blog/157716" target="_blank" rel="external">http://my.oschina.net/meilihao/blog/157716</a> 字数：580</li>
@@ -538,6 +538,10 @@ SSH Key多账户
               
                 <li class="links-of-blogroll-item">
                   <a href="http://www.yangliu817.cn/" title="Liu" target="_blank">Liu</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://brenthub.github.io/" title="Brent" target="_blank">Brent</a>
                 </li>
               
             </ul>
